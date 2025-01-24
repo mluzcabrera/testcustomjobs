@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   custom:
-    delegates: calculi-corp/ng-dsl-example/blob/cbp-7959-poll-job-demo/customjob-polling.yaml
+    delegates: mluzcabrera/customjobpoll/topollillo.yaml
   build:
     needs: custom
     steps:
