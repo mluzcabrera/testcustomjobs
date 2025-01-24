@@ -6,7 +6,7 @@ on:
 jobs:
   custom:
     delegates: mluzcabrera/customjobpoll/topollillo.yaml
-    timeout-minutes: 5
+    timeout-minutes: 60
   build:
     needs: custom
     steps:
