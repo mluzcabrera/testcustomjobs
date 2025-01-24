@@ -7,9 +7,10 @@ jobs:
   custom:
     delegates: calculi-corp/ng-dsl-example/blob/cbp-7959-poll-job-demo/customjob-polling.yaml
   build:
+    needs: custom
     steps:
       - name: Say hello
         uses: docker://golang:1.20.3-alpine3.17
         shell: sh
         run: |
-          echo "hello world"
+          echo "hello world ${{ needs.custom.result }}"
