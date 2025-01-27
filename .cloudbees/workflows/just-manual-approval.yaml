@@ -6,12 +6,14 @@ on:
   workflow_call:
 jobs:
   manual-approval:
+    with:
+      approvers: 4b7f53fc-d4fe-11ec-bb55-42010a83ae55
+      disallowLaunchByUser: false
+      instructions: click me
+      approvalInputs: |
+        {}
     timeout-minutes: 4320
     delegates: cloudbees-io/manual-approval/custom-job.yml@v1
-    with:
-      approvers: 7f5b8e40-03d4-11eb-9d67-42010a83ae35
-      disallowLaunchByUser: false
-      instructions: "click me"
   build:
     steps:
       - name: Say hello
@@ -21,4 +23,3 @@ jobs:
           echo "hello world"
     needs:
       - manual-approval
-
