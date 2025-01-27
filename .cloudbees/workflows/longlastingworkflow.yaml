@@ -1,0 +1,24 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: LongLastingWorkflow
+on:
+  workflow_dispatch:
+  workflow_call:
+jobs:
+  anotherone:
+    uses: robkozura/approval-test/.cloudbees/workflows/just-manual-approval.yaml
+    needs: build
+  build:
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo WHATTTTTTT
+          i=1
+          while [ $i -le 10000 ]
+          do
+              sleep 1
+              echo $i
+              i=$(($i+1))
+          done
