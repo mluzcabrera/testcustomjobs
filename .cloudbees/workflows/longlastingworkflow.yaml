@@ -6,7 +6,7 @@ on:
   workflow_call:
 jobs:
   anotherone:
-    uses: robkozura/approval-test/.cloudbees/workflows/just-manual-approval.yaml
+    uses: mluzcabrera/testcustomjobs/.cloudbees/workflows/just-manual-approval.yaml
     needs: build
   build:
     steps:
