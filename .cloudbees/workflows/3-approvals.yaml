@@ -1,0 +1,29 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: 3 approvals
+
+on:
+  workflow_dispatch:
+
+jobs:
+  manual-approval:
+    with:
+      approvers: 4b7f53fc-d4fe-11ec-bb55-42010a83ae55
+      disallowLaunchByUser: false
+      instructions: click me
+    timeout-minutes: 4320
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+  manual-approval2:
+    with:
+      approvers: 4b7f53fc-d4fe-11ec-bb55-42010a83ae55
+      disallowLaunchByUser: false
+      instructions: click me
+    timeout-minutes: 4320
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+  manual-approval3:
+    with:
+      approvers: 4b7f53fc-d4fe-11ec-bb55-42010a83ae55
+      disallowLaunchByUser: false
+      instructions: click me
+    timeout-minutes: 4320
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
