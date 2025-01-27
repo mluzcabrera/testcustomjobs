@@ -1,0 +1,17 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: 3 custom jobs
+on:
+  workflow_dispatch:
+jobs:
+  custom:
+    delegates: mluzcabrera/customjobpoll/topollillo.yaml
+    timeout-minutes: 4320
+  custom2:
+    needs: custom
+    delegates: mluzcabrera/customjobpoll/topollillo.yaml
+    timeout-minutes: 4320
+  custom3:
+    needs: custom2
+    delegates: mluzcabrera/customjobpoll/topollillo.yaml
+    timeout-minutes: 4320
