@@ -3,9 +3,7 @@ kind: workflow
 name: many jobs
 
 on:
-  push:
-    branches:
-      - '**'
+  workflow_dispatch:
 
 jobs:
   build:
