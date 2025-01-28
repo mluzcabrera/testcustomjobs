@@ -1,0 +1,99 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: many jobs
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build2:
+    needs: build
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build3:
+    needs: build2
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build4:
+    needs: build3
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build5:
+    needs: build4
+    timeout-minutes: 180
+    teps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build6:
+    needs: build5
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build7:
+    needs: build6
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build8:
+    needs: build7
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build9:
+    needs: build8
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
+  build10:
+    needs: build9
+    timeout-minutes: 180
+    steps:
+      - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
+        shell: sh
+        run: |
+          echo "hello world"
