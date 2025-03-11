@@ -9,4 +9,6 @@ jobs:
   custom:
     delegates: mluzcabrera/customjobpoll/topollillo.yaml
     environment: environment_mlcb
+    with:
+      some-arg: ${{ vars.testpropertymlcb404 }}
     timeout-minutes: 4320
