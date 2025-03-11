@@ -8,4 +8,5 @@ on:
 jobs:
   custom:
     delegates: mluzcabrera/customjobpoll/topollillo.yaml
+    environment: environment_mlcb
     timeout-minutes: 4320
