@@ -11,4 +11,6 @@ jobs:
     environment: environment_mlcb
     with:
       some-arg: ${{ vars.testpropertymlcb404 }}
+    secrets:
+      asecret: ${{ secrets.testsecret1 }}
     timeout-minutes: 4320
