@@ -9,11 +9,6 @@ inputs:
     description: Param One
     required: false
 
-outputs:
-  result:
-    description: Final status of the job
-    value: ${{ handlers.init.outputs.result }}
-
 
 handlers:
   init:
