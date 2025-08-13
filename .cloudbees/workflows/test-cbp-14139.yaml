@@ -3,9 +3,7 @@ kind: workflow
 name: Test CBP-14139
 
 on:
-  push:
-    branches:
-      - "**"
+
   workflow_dispatch:
       
 jobs:
