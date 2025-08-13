@@ -1,0 +1,25 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: Test CBP-14139
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+      
+jobs:
+    custom:
+        delegates: mluzcabrera/testcustomjobs/.cloudbees/custom-CBP-14139.yaml
+        with:
+            param1: "asdf"
+        timeout-minutes: 30
+        
+    build:
+      needs: custom
+      steps:
+        - name: Say hello
+          uses: docker://golang:1.20.3-alpine3.17
+          shell: sh
+          run: |
+            echo "hello world ${{ needs.custom.outputs.result }}"
