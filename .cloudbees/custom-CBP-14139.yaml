@@ -1,0 +1,39 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: CustomJob
+name: custom-job-for-testing
+description: Custom job for testing call-url and token
+
+
+inputs:
+  param1:
+    description: Param One
+    required: false
+
+outputs:
+  result:
+    description: Final status of the job
+    value: ${{ handlers.init.outputs.result }}
+
+
+handlers:
+  init:
+    uses: docker://nginxinc/nginx-unprivileged:latest
+    command: /bin/sh
+    args: |
+      -c "  
+      echo \"json: ${{toJSON(callback)}}\"
+      "
+  callback:
+    uses: docker://golang:1.20.3-alpine3.17
+    command: /bin/sh
+    args: |
+      -c "
+      echo \"Callback called\"
+      "
+  cancel:
+    uses: docker://golang:1.20.3-alpine3.17
+    command: /bin/sh
+    args: |
+      -c "
+      echo \"Cancel called\"
+      "
